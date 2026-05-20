@@ -166,3 +166,36 @@ function showToast(msg, type = 'success') {
     toast.classList.remove('show');
   }, 2500);
 }
+
+// ── 赞赏码弹窗 ─────────────────────────────────────────────
+let rewardTimer = null;
+let rewardCountdown = null;
+
+function showReward() {
+  const overlay = document.getElementById('rewardOverlay');
+  const timerLabel = document.getElementById('rewardTimer');
+  overlay.classList.add('show');
+
+  let seconds = 10;
+  timerLabel.textContent = seconds + '秒后自动关闭';
+
+  if (rewardCountdown) clearInterval(rewardCountdown);
+  rewardCountdown = setInterval(() => {
+    seconds--;
+    if (seconds > 0) {
+      timerLabel.textContent = seconds + '秒后自动关闭';
+    } else {
+      clearInterval(rewardCountdown);
+      hideReward();
+    }
+  }, 1000);
+}
+
+function hideReward() {
+  const overlay = document.getElementById('rewardOverlay');
+  overlay.classList.remove('show');
+  if (rewardCountdown) {
+    clearInterval(rewardCountdown);
+    rewardCountdown = null;
+  }
+}
