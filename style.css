@@ -87,26 +87,86 @@ html, body {
   letter-spacing: 0.5px;
 }
 
-.author-footer {
+/* ── 作者卡片 ───────────────────────────────────────────── */
+.author-card {
+  background: linear-gradient(135deg, #fff6fa, #ffe8f2);
   text-align: center;
-  padding: 20px 0 30px;
+  padding: 22px 16px 18px;
 }
 
-.author-link {
+.author-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.author-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--pink);
+  box-shadow: 0 3px 10px rgba(255, 78, 139, 0.25);
+}
+
+.author-name {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--pink-dark);
+  letter-spacing: 1px;
+}
+
+.author-douyin {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 6px;
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--pink);
   text-decoration: none;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  padding: 6px 18px;
-  border-radius: 20px;
-  transition: all 0.3s;
+  background: #fff;
+  border: 1.5px solid var(--pink);
+  padding: 4px 12px;
+  border-radius: 16px;
+  transition: all 0.25s;
+}
+
+.author-douyin:hover {
+  background: var(--pink);
+  color: #fff;
+}
+
+.author-douyin svg {
+  flex-shrink: 0;
+}
+
+.author-slogan {
+  font-size: 14px;
+  color: var(--text-sub);
+  margin: 10px 0 14px;
   letter-spacing: 0.5px;
 }
 
-.author-link:hover {
+.btn-feed {
+  width: 100%;
+  height: 44px;
+  background: linear-gradient(135deg, #ff6b8a, #ff4e6b);
   color: #fff;
-  border-color: rgba(255, 255, 255, 0.5);
-  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(255, 78, 107, 0.35);
+  transition: transform 0.15s, box-shadow 0.15s;
+  letter-spacing: 1px;
+}
+
+.btn-feed:active {
+  transform: scale(0.97);
+  box-shadow: none;
 }
 
 /* ── 卡片 ─────────────────────────────────────────────── */
@@ -339,3 +399,73 @@ html, body {
 }
 .toast.toast-success { background: rgba(70, 160, 90, 0.9); }
 .toast.toast-error   { background: rgba(200, 50, 50, 0.9); }
+
+/* ── 赞赏码弹窗 ─────────────────────────────────────────── */
+.reward-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.reward-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.reward-modal {
+  position: relative;
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  max-width: 340px;
+  width: 90%;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  transform: scale(0.9);
+  transition: transform 0.3s;
+}
+
+.reward-overlay.show .reward-modal {
+  transform: scale(1);
+}
+
+.reward-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #999;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.2s, color 0.2s;
+}
+
+.reward-close:hover {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.reward-img {
+  max-width: 100%;
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto;
+}
+
+.reward-timer {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #aaa;
+}
