@@ -87,6 +87,28 @@ html, body {
   letter-spacing: 0.5px;
 }
 
+.author-footer {
+  text-align: center;
+  padding: 20px 0 30px;
+}
+
+.author-link {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 6px 18px;
+  border-radius: 20px;
+  transition: all 0.3s;
+  letter-spacing: 0.5px;
+}
+
+.author-link:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+}
+
 /* ── 卡片 ─────────────────────────────────────────────── */
 .card {
   background: var(--bg2);
